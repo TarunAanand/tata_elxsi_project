@@ -1,0 +1,52 @@
+WORKFLOW
+
+→ High-Level Problem
+→ Frontend Refinement
+→ Backend Code Gen
+→ Build
+→ Test & Validate
+→ CARLA Validation
+→ Demo
+
+FRONTEND
+    AI Agent Selector
+    Chat Window
+    Code Editor
+    Spec Viewer	- Rendered requirements + service interface design
+    Language Selector
+    Preview Panel -	Live dashboard mockup
+    Export specs as JSON.
+
+BACKEND
+    AI Code Generation (source code + tests)
+    MISRA validation
+    ASPICE traceability
+    CARLA + SOME/IP Client
+    Docker Builder
+
+BUILD SYSTEM
+
+Docker Compose:
+    soa-backend/ (code gen & testing)
+    android-hmi/ (Android Studio Emulator)
+    linux-hmi/ (Ubuntu Docker)
+    carla-bridge/ (SOME/IP data router)
+
+CARLA Integration layer
+    → CARLA signals
+    → SOME/ IP
+    → SoA Services
+    → HMI dashboard visualization
+
+CARLA DATA MAPPING
+_____________________________________________________________
+CARLA Signal	    SoA Service             HMI Display
+_____________________________________________________________
+vehicle_speed	    speed_service	    Speed Gauge
+gear_position	    gear_service	    Gear Indicator
+throttle_pos	    throttle_service	    Throttle Bar
+brake_pos	    brake_service	    Brake Indicator
+ev_range	    battery_service	    Range Circle
+battery_soc	    battery_service	    SoC Arc
+steering_angle	    steering_service	    Steering Wheel
+tyre_pressure	    tyre_service	    Pressure Gauges
